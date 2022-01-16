@@ -33,8 +33,8 @@ If you see a C GLFW function in a tutorial for example, you might see something 
 
 For example:
 
-`glfwCreateWindow` -> `glfw.create_window`
-`glfwSetWindowTitle` -> `window.set_title`
+`glfwCreateWindow` -> `glfw.create_window` \
+`glfwSetWindowTitle` -> `window.set_title` \
 `glfwGetWindowSize` -> `window.get_size`
 
 ## How done are the bindings?
