@@ -5,6 +5,10 @@ module glfw
 
 fn C.glfwInit() int
 
-pub fn init_glfw() int {
-	return C.glfwInit()
+pub fn init_glfw() ? {
+	if C.glfwInit() == 1 {
+		return
+	} else {
+		return error('Failed to initialize GLFW')
+	}
 }

@@ -1,7 +1,7 @@
 module glfw
 
 fn test_full() {
-	init_glfw()
+	init_glfw() or { panic(err) }
 	window_hint(context_version_major, 3)
 	window_hint(context_version_minor, 3)
 	window_hint(opengl_profile, opengl_core_profile)
