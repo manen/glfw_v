@@ -8,7 +8,7 @@ module main
 import manen.glfw
 
 fn main() {
-  glfw.init_glfw()
+  glfw.init_glfw() or { panic('Failed to initialize GLFW') }
   glfw.window_hint(glfw.context_version_major, 3)
   glfw.window_hint(glfw.context_version_minor, 3)
   glfw.window_hint(glfw.opengl_profile, glfw.opengl_core_profile)
