@@ -18,6 +18,8 @@ fn main() {
 
   for !win.should_close() {
     glfw.poll_events()
+    win.swap_buffers()
+    // the expected output of this program is a responsive, yet completely black window.
   }
 }
 ```

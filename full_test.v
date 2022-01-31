@@ -10,5 +10,6 @@ fn test_full() {
 
 	for !win.should_close() {
 		poll_events()
+		win.swap_buffers()
 	}
 }
