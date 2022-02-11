@@ -82,11 +82,6 @@ pub fn (window Window) destroy() {
 	C.glfwDestroyWindow(window.ptr)
 }
 
-pub fn (window &Window) free() {
-	window.destroy()
-	unsafe { free(window) }
-}
-
 [inline]
 pub fn (window Window) should_close() bool {
 	return C.glfwWindowShouldClose(window.ptr) != 0
