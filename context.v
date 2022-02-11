@@ -12,14 +12,17 @@ pub fn (window Window) make_context_current() {
 
 // getCurrentContext???
 
+[inline]
 pub fn swap_interval(interval int) {
 	C.glfwSwapInterval(interval)
 }
 
+[inline]
 pub fn extension_supported(extension string) bool {
 	return C.glfwExtensionSupported(extension.str) == glfw_true
 }
 
+[inline]
 pub fn get_proc_address(procname string) voidptr {
 	return C.glfwGetProcAddress(procname.str)
 }
