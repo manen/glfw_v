@@ -15,14 +15,16 @@ fn main() {
   // glfw.window_hint(glfw.opengl_forward_compat, glfw.glfw_true) // uncomment if you're on mac
 
   win := glfw.create_window(800, 600, 'GLFW window') or { panic('Failed to open window') }
+  win.make_context_current()
 
   for !win.should_close() {
     glfw.poll_events()
     win.swap_buffers()
-    // the expected output of this program is a responsive, yet completely black window.
   }
 }
 ```
+
+The expected output of this program is a blank, yet responsive window. To start drawing on this window with OpenGL, check out [`gl_v`, the friendly OpenGL bindings](https://github.com/manen/gl_v).
 
 ## How do V functions map to the GLFW API?
 
