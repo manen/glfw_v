@@ -6,6 +6,7 @@ fn C.glfwSwapInterval(interval int)
 fn C.glfwExtensionSupported(extension &char) int
 fn C.glfwGetProcAddress(procname &char) voidptr
 
+[inline]
 pub fn (window Window) make_context_current() {
 	C.glfwMakeContextCurrent(window.ptr)
 }
