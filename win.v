@@ -48,14 +48,17 @@ fn C.glfwWaitEventsTimeout(timeout f64)
 fn C.glfwPostEmptyEvent()
 fn C.glfwSwapBuffers(window voidptr)
 
+[inline]
 pub fn default_window_hints() {
 	C.glfwDefaultWindowHints()
 }
 
+[inline]
 pub fn window_hint(hint Enum, val Enum) {
 	C.glfwWindowHint(hint, val)
 }
 
+[inline]
 pub fn window_hint_string(hint Enum, val string) {
 	C.glfwWindowHintString(hint, &char(val.str))
 }
@@ -74,23 +77,22 @@ pub fn create_window(width int, height int, title string) ?Window {
 	return Window{ptr}
 }
 
+[inline]
 pub fn (window Window) destroy() {
 	C.glfwDestroyWindow(window.ptr)
 }
 
-pub fn (window &Window) free() {
-	window.destroy()
-	unsafe { free(window) }
-}
-
+[inline]
 pub fn (window Window) should_close() bool {
 	return C.glfwWindowShouldClose(window.ptr) != 0
 }
 
+[inline]
 pub fn (window Window) set_should_close(val bool) {
 	C.glfwSetWindowShouldClose(window.ptr, int(val))
 }
 
+[inline]
 pub fn (window Window) set_title(title string) {
 	C.glfwSetWindowTitle(window.ptr, &char(title.str))
 }
@@ -105,6 +107,7 @@ pub fn (window Window) get_pos() (int, int) {
 	return x, y
 }
 
+[inline]
 pub fn (window Window) set_pos(pos_x int, pos_y int) {
 	C.glfwSetWindowPos(window.ptr, pos_x, pos_y)
 }
@@ -117,14 +120,17 @@ pub fn (window Window) get_size() (int, int) {
 	return width, height
 }
 
+[inline]
 pub fn (window Window) set_size_limits(min_width int, min_height int, max_width int, max_height int) {
 	C.glfwSetWindowSizeLimits(window.ptr, min_height, min_height, max_width, max_height)
 }
 
+[inline]
 pub fn (window Window) set_aspect_ratio(number int, denom int) {
 	C.glfwSetWindowAspectRatio(window.ptr, number, denom)
 }
 
+[inline]
 pub fn (window Window) set_size(width int, height int) {
 	C.glfwSetWindowSize(window.ptr, width, height)
 }
@@ -153,52 +159,64 @@ pub fn (window Window) get_content_scale() (f32, f32) {
 	return x, y
 }
 
+[inline]
 pub fn (window Window) get_opacity() f32 {
 	return C.glfwGetWindowOpacity(window.ptr)
 }
 
+[inline]
 pub fn (window Window) set_opacity(opacity f32) {
 	C.glfwSetWindowOpacity(window.ptr, opacity)
 }
 
+[inline]
 pub fn (window Window) iconify() {
 	C.glfwIconifyWindow(window.ptr)
 }
 
+[inline]
 pub fn (window Window) restore() {
 	C.glfwRestoreWindow(window.ptr)
 }
 
+[inline]
 pub fn (window Window) maximize() {
 	C.glfwMaximizeWindow(window.ptr)
 }
 
+[inline]
 pub fn (window Window) show() {
 	C.glfwShowWindow(window.ptr)
 }
 
+[inline]
 pub fn (window Window) hide() {
 	C.glfwHideWindow(window.ptr)
 }
 
+[inline]
 pub fn (window Window) focus() {
 	C.glfwFocusWindow(window.ptr)
 }
 
+[inline]
 pub fn (window Window) request_attention() {
 	C.glfwRequestWindowAttention(window.ptr)
 }
 
 // TODO monitor
 
+[inline]
 pub fn (window Window) get_attrib(attrib Enum) Enum {
 	return C.glfwGetWindowAttrib(window.ptr, attrib)
 }
 
+[inline]
 pub fn (window Window) set_attrib(attrib Enum, val Enum) {
 	C.glfwSetWindowAttrib(window.ptr, attrib, val)
 }
 
+[inline]
 pub fn (window Window) swap_buffers() {
 	C.glfwSwapBuffers(window.ptr)
 }
@@ -207,18 +225,22 @@ pub fn (window Window) swap_buffers() {
 
 // TODO figure out a memory-safe way to do callbacks
 
+[inline]
 pub fn poll_events() {
 	C.glfwPollEvents()
 }
 
+[inline]
 pub fn wait_events() {
 	C.glfwWaitEvents()
 }
 
+[inline]
 pub fn wait_events_timeout(timeout f64) {
 	C.glfwWaitEventsTimeout(timeout)
 }
 
+[inline]
 pub fn post_empty_event() {
 	C.glfwPostEmptyEvent()
 }

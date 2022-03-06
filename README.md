@@ -26,6 +26,8 @@ fn main() {
 }
 ```
 
+The expected output of this program is a blank, yet responsive window. To start drawing on this window with OpenGL, check out [`gl_v`, the friendly OpenGL bindings](https://github.com/manen/gl_v).
+
 ## How do V functions map to the GLFW API?
 
 If you see a C GLFW function in a tutorial for example, you might see something like `glfwWindowHint`, while in V, you'll see `glfw.window_hint`. So, how can you translate C function names into V function names?
