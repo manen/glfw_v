@@ -15,11 +15,13 @@ fn main() {
   // glfw.window_hint(glfw.opengl_forward_compat, glfw.glfw_true) // uncomment if you're on mac
 
   win := glfw.create_window(800, 600, 'GLFW window') or { panic('Failed to open window') }
+  win.make_context_current()
 
   for !win.should_close() {
     glfw.poll_events()
     win.swap_buffers()
     // the expected output of this program is a responsive, yet completely black window.
+    // to start drawing on the window we created, check out https://github.com/manen/gl_v
   }
 }
 ```
@@ -41,4 +43,4 @@ For example:
 
 ## How done are the bindings?
 
-Not that much. For now, it's very early, and only supports window-related functions. So no input handling, or pretty much anything else. You can pretty much open a window and close it right now.
+Sort of. It should be enough for apps and games that don't require too much.

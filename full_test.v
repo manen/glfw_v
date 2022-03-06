@@ -7,6 +7,7 @@ fn test_full() {
 	window_hint(opengl_profile, opengl_core_profile)
 
 	win := create_window(800, 600, "yeah so i really have no clue what i'm doing") or { panic(err) }
+	win.make_context_current()
 
 	for !win.should_close() {
 		poll_events()
